@@ -14,6 +14,8 @@ A save conversion/decryption utility for P5R PC.
 
 ## Usage
 
+### Converting PS4 Saves to PC Saves
+
 1. Using your preferred method, dump some **decrypted** P5R saves from your PS4, e.g. using [Apollo Save Tool][1] or PS4 Save Mounter + ftp.
 
    You should end up with a folder structure similar to:
@@ -40,7 +42,7 @@ A save conversion/decryption utility for P5R PC.
 2. Convert the save folder from the previous step using:
 
    ```txt
-   python fiber-saveutil.py convert ps4_saves pc_saves
+   python fiber-saveutil.py convert /path/to/ps4_saves/ /path/to/pc_saves/
    ```
 
    The result should look like the following:
@@ -65,7 +67,7 @@ A save conversion/decryption utility for P5R PC.
    pc_saves/SYSTEM/SYSTEM.DAT
    ```
 
-3. Place the converted saves in the game's save folder (e.g. `%AppData%/Roaming/SEGA/P5R/Steam/<steam_id>/` for the Steam version on Windows).
+3. Place the converted saves in the game's save folder (e.g. `%APPDATA%/Roaming/SEGA/P5R/Steam/<steam_id>/` for the Steam version on Windows).
 
 4. Boot the game and load your saves.
 
@@ -73,7 +75,7 @@ A save conversion/decryption utility for P5R PC.
 |:-------:|:-------:|:-------:|
 | ![x][2] | ![x][3] | ![x][4] |
 
-### Conversion Notes
+#### Conversion Notes
 
 - Only English (US/EU) PS4 saves are currently supported.
 
@@ -94,13 +96,13 @@ A save conversion/decryption utility for P5R PC.
   Ouran High (Kasumi)
   ```
 
-  Equipping any one of these will result in a soft-lock since the _Raidou Kuzunoha Costume & BGM Special Set_ was cut from the PC version - you'll need to use a mod to restore them.
+  Equipping any one of these will result in a soft-lock since the _Raidou Kuzunoha Costume & BGM Special Set_ was cut from the PC version - you'll need to use a [mod][6] to restore them.
 
 - Loading a save that was converted from PS4 without an associated `param.sfo` file should still work, however saves will appear like this in the load menu:
 
   ![x][5]
 
-## Decrypting PC Saves
+### Decrypting PC Saves
 
 - To decrypt a PC save:
 
@@ -116,7 +118,7 @@ A save conversion/decryption utility for P5R PC.
 
 - To "resign" a decrypted save (e.g. after editing), simply "decrypt" (or encrypt) the save again to generate a new save file with the correct checksums.
 
-### Decryption Notes
+#### Decryption Notes
 
 - Saves have checksums, so you have to "resign" them after editing.
 - The game supports loading decrypted saves (as long as the save checksums are valid).
@@ -126,3 +128,4 @@ A save conversion/decryption utility for P5R PC.
 [3]: https://cdn.discordapp.com/attachments/546718581572894730/1032668019471699989/ps4_to_nx.png
 [4]: https://cdn.discordapp.com/attachments/546718581572894730/1032668019471699989/ps4_to_nx.png
 [5]: https://cdn.discordapp.com/attachments/546718581572894730/1032668051721703454/ps4_to_nx_without_sfo.png
+[6]: https://cdn.discordapp.com/attachments/546718581572894730/1032708752538882171/Fiber_Raidou_Restore.7z
