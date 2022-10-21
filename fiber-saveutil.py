@@ -60,14 +60,13 @@ def convert_save(path_in: Path, path_out: Path):
         fsi.seek(0x48, 0)
         c = struct.unpack("<Q", fsi.read(8))[0]
 
-    match m:
-        case 0x2D000000:
-            if c != 0xA002000001000100:
-                print("error: only us/eu ps4 saves are supported")
-                return
-            convert_gamedata(path_in, path_out)
-        case 0x00000002: convert_sysdata(path_in, path_out)
-        case _: print(f"error: not a ps4 save -- {path_in}")
+    if m == 0x2D000000:
+        if c != 0xA002000001000100:
+            print("error: only us/eu ps4 saves are supported")
+            return
+        convert_gamedata(path_in, path_out)
+    elif m == 0x00000002: convert_sysdata(path_in, path_out)
+    else: print(f"error: not a ps4 save -- {path_in}")
 
 def convert_saves(path_in: Path, path_out: Path):
     saves = [f for f in path_in.glob("./*.DAT") if f.is_file()]
@@ -168,10 +167,9 @@ def main():
     parser = create_parser()
     args = parser.parse_args(sys.argv[1:])
 
-    match args.command:
-        case "convert": command_convert(args)
-        case "dump": command_dump(args)
-        case _: parser.print_help()
+    if args.command == "convert": command_convert(args)
+    elif args.command == "dump": command_dump(args)
+    else: parser.print_help()
 
 if __name__ == "__main__":
     main()

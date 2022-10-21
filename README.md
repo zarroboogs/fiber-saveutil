@@ -9,7 +9,7 @@ A save conversion/decryption utility for P5R PC.
   - `CUSA17416` (P5R US)
   - `CUSA17419` (P5R EU)
 - For save decryption - PC saves.
-- Python 3.10+
+- Python 3+
   - Install Python dependencies with `python -m pip install -r requirements.txt`
 
 ## Usage
