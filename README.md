@@ -1,5 +1,5 @@
 
-# P5R PC Save Utility
+# Persona 5 Royal PC Save Utility
 
 A save conversion/decryption utility for P5R PC.
 
@@ -39,7 +39,7 @@ A save conversion/decryption utility for P5R PC.
    ps4_saves/CUSA17416_SYSTEM/sce_sys/param.sfo
    ```
 
-2. Convert the save folder from the previous step using:
+2. **Backup your dumped saves**, then convert the save folder from the previous step using:
 
    ```txt
    python fiber-saveutil.py convert /path/to/ps4_saves/ /path/to/pc_saves/
@@ -120,12 +120,13 @@ A save conversion/decryption utility for P5R PC.
 
 #### Decryption Notes
 
+- Make sure to **backup your saves** before running the tool.
 - Saves have checksums, so you have to "resign" them after editing.
 - The game supports loading decrypted saves (as long as the save checksums are valid).
 
 [1]: https://github.com/bucanero/apollo-ps4
 [2]: https://cdn.discordapp.com/attachments/546718581572894730/1032667980275920896/ps4.png
 [3]: https://cdn.discordapp.com/attachments/546718581572894730/1032668019471699989/ps4_to_nx.png
-[4]: https://cdn.discordapp.com/attachments/546718581572894730/1032668019471699989/ps4_to_nx.png
+[4]: https://cdn.discordapp.com/attachments/546718581572894730/1032974402641477662/ps4_to_pc.png
 [5]: https://cdn.discordapp.com/attachments/546718581572894730/1032668051721703454/ps4_to_nx_without_sfo.png
 [6]: https://cdn.discordapp.com/attachments/546718581572894730/1032708752538882171/Fiber_Raidou_Restore.7z
