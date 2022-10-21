@@ -57,9 +57,15 @@ def convert_sysdata(path_in, path_out):
 def convert_save(path_in: Path, path_out: Path):
     with open(path_in, "rb") as fsi:
         m = struct.unpack("<I", fsi.read(4))[0]
+        fsi.seek(0x48, 0)
+        c = struct.unpack("<Q", fsi.read(8))[0]
 
     match m:
-        case 0x2D000000: convert_gamedata(path_in, path_out)
+        case 0x2D000000:
+            if c != 0xA002000001000100:
+                print("error: only us/eu ps4 saves are supported")
+                return
+            convert_gamedata(path_in, path_out)
         case 0x00000002: convert_sysdata(path_in, path_out)
         case _: print(f"error: not a ps4 save -- {path_in}")
 
