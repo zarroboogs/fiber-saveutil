@@ -11,7 +11,10 @@ from save import GameData, SaveFile
 
 def convert_gamedata(path_in, path_out):
     print(f"found ps4 game data -- {path_in}")
-    sfo_path = Path(path_in / "../sce_sys/param.sfo")
+    if sys.platform == "linux":
+        sfo_path = Path(path_in.parent / "sce_sys/param.sfo")
+    else:
+        sfo_path = Path(path_in / "../sce_sys/param.sfo")
 
     detail = b""
     if sfo_path.is_file():
