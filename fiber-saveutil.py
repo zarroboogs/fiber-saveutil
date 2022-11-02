@@ -1,6 +1,7 @@
 
 import re
 import sys
+from os import name as os_name
 import struct
 import argparse
 
@@ -11,7 +12,7 @@ from save import GameData, SaveFile
 
 def convert_gamedata(path_in, path_out):
     print(f"found ps4 game data -- {path_in}")
-    if sys.platform == "linux":
+    if os_name == "posix":
         sfo_path = Path(path_in.parent / "sce_sys/param.sfo")
     else:
         sfo_path = Path(path_in / "../sce_sys/param.sfo")
